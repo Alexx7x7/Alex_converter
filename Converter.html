@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер одиниць</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер одиниць</h1>
+        <h2>Виберіть тип конвертації:</h2>
+        <label>
+            <input type="radio" name="conversionType" value="metersToKilometers" checked>
+            Метри в Кілометри
+        </label>
+        <label>
+            <input type="radio" name="conversionType" value="kilometersToMeters">
+            Кілометри в Метри
+        </label>
+
+        <label for="inputValue">Введіть значення:</label>
+        <input type="number" id="inputValue" placeholder="Введіть число">
+
+        <button onclick="convert()">Конвертувати</button>
+
+        <h2>Результат: <span id="result"></span></h2>
+    </div>
+
+    <script>
+        function convert() {
+            const inputValue = parseFloat(document.getElementById('inputValue').value);
+            const conversionType = document.querySelector('input[name="conversionType"]:checked').value;
+            let result;
+
+            if (isNaN(inputValue)) {
+                result = "Будь ласка, введіть коректне число.";
+            } else {
+                if (conversionType === "metersToKilometers") {
+                    result = inputValue / 1000 + " км";
+                } else if (conversionType === "kilometersToMeters") {
+                    result = inputValue * 1000 + " м";
+                }
+            }
+
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>
