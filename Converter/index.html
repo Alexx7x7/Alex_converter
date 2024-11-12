@@ -1,0 +1,31 @@
+<!DOCTYPE html>  
+<html lang="uk">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Конвертер одиниць</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+    <div class="container">  
+        <h1>Конвертер одиниць</h1>  
+        <h2>Виберіть тип конвертації:</h2>  
+        <label>  
+            <input type="radio" name="conversionType" value="metersToKilometers" checked>  
+            Метри в Кілометри  
+        </label>  
+        <label>  
+            <input type="radio" name="conversionType" value="kilometersToMeters">  
+            Кілометри в Метри  
+        </label>  
+
+        <label for="inputValue">Введіть значення:</label>  
+        <input type="number" id="inputValue" placeholder="Введіть число">  
+
+        <button onclick="convert()">Конвертувати</button>  
+
+        <h2>Результат: <span id="result"></span></h2>  
+    </div>  
+    <script src="script.js"></script>  
+</body>  
+</html>
